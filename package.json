@@ -3,12 +3,14 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "storybook": "turbo dev --filter=storybook --filter=@repo/ui",
+    "storybook": "turbo dev --filter=storybook",
     "build:storybook": "turbo build:storybook --filter=storybook",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ui:add": "pnpm --filter ui ui:add",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "clean:all": "rm -rf .turbo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name '.next' -type d -prune -exec rm -rf '{}' + && rm -f package-lock.json + && pnpm install"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
